@@ -21,8 +21,8 @@ for the terms:
 
 | Mailing list | Discourse |
 |--------------|-----------|
-| Mailing list | category, consists of topics |
-| thread | topic, consists of posts |
+| Mailing list, consists of threads | category, consists of topics |
+| thread, consists of emails | topic, consists of posts |
 | email | post |
 
 ## Mailing list archive
