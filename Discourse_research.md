@@ -11,7 +11,8 @@ recently and also creates significant administration and maintenance overhead.
 A while ago there was an
 [announcement](https://lists.llvm.org/pipermail/llvm-dev/2019-November/136880.html)
 of an [LLVM Discord server](https://llvm.discourse.group/). So goal of this
-document is to figure out if/how we could migrate from mailman to Discourse.
+document is to figure out if/how we could migrate from mailman to Discourse. 
+While there are other alternatives, they are not considered in THIS document.
 
 ## Discord terms
 
