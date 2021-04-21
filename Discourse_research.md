@@ -52,28 +52,54 @@ are the typical use cases:
 
 Our [code review
 policy](https://llvm.org/docs/CodeReview.html#what-tools-are-used-for-code-review)
-allows for code reviews via email.
+allows for code reviews via email. However I was not able to find a single code
+review on any of the ``-commits`` mailing lists between 2021-02-01 and
+2021-04-21. So maybe this is not used any more?
 
-**TODO:** notifications about new code reviews on Phabricator: create Herald
-rule
-
-**TODO:** notifications about new comments/changes to existing code reviews on
-Phabricator: should work out of the box
-
-**TODO:** Link to documentation on how to do a code review via email, if that exists.
-
-**TODO:** Understand if people still use this feature. If so: add links to some examples.
-
-**TODO:** Figure out if we can find a specific solution for this with
-Phabricator.
+**TODO:** Ask the community if this is still used anywhere. If not: update the
+documentation accordingly.
 
 ## Handling automatic notifications
 
 Not only humans are posting to our mailing lists, we also have some services
 posting automatic messages to notify folks of some event that occurred.
 
-**TODO:** find out what automatic notifications end up on the mailing lists
-(new commits, new code reviews, CI results, ...).
+* *New code reviews on Phabricator:*
+  You can set up a custom [Herald](https://reviews.llvm.org/herald/) rule to get
+  notified on the reviews you're interested in.
 
-**TODO:** Figure out what options we have to do that on Discourse (or some other
-notification service).
+* *Changes to an ongoing code review on Phabricator:*
+  This is supported by Phabricator out of the box. Open the revision you're
+  interested in and click on "Subscribe" in the box on the right.
+
+* *New commits to the GitHub repositories:*
+  You can subscribe to an Atom feed for any GitHub repo. For the LLVM main branch
+  point your Atom reader to
+  [github.com/llvm/llvm-project/commits/main.atom](https://github.com/llvm/llvm-project/commits/main.atom)
+  or
+  [github.com/llvm/llvm-project/commits/release/12.x.atom](https://github.com/llvm/llvm-project/commits/release/12.x.atom)
+  for the release branch. You can generate these URLs by adding the suffix
+  ``.atom`` to the URL of the respective "commits" page.
+
+* *New/modified bugs:*
+  After the [migration](https://lists.llvm.org/pipermail/llvm-dev/2019-October/136162.html) from the [LLVM Bugzilla](http://bugs.llvm.org/) to GitHub issues, you can "watch" the issues
+  of a repository.
+
+* *LLVM Weekly newsletter:*
+  You can subscribe to it on their [website](http://llvmweekly.org/).
+
+* *Sending a post from a script:*
+  In case you want to [create a new
+  post/topic](https://docs.discourse.org/#tag/Posts/paths/~1posts.json/post)
+  automatically from a script or tool, you can use the
+  [Discourse API](https://docs.discourse.org/).
+
+**TODO:** Do we need some machine-to-machine notifications? Is any service
+parsing the emails on the mailing list?
+
+**TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
+that information.
+
+## other use cases
+
+**TODO:** Figure out if there are additional use cases, not covered above.
