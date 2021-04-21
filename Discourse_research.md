@@ -54,6 +54,12 @@ Our [code review
 policy](https://llvm.org/docs/CodeReview.html#what-tools-are-used-for-code-review)
 allows for code reviews via email.
 
+**TODO:** notifications about new code reviews on Phabricator: create Herald
+rule
+
+**TODO:** notifications about new comments/changes to existing code reviews on
+Phabricator: should work out of the box
+
 **TODO:** Link to documentation on how to do a code review via email, if that exists.
 
 **TODO:** Understand if people still use this feature. If so: add links to some examples.
