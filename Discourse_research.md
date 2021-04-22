@@ -10,13 +10,13 @@ recently and also creates significant administration and maintenance overhead.
 
 A while ago there was an
 [announcement](https://lists.llvm.org/pipermail/llvm-dev/2019-November/136880.html)
-of an [LLVM Discord server](https://llvm.discourse.group/). So goal of this
-document is to figure out if/how we could migrate from mailman to Discourse. 
+of an [LLVM Discourse server](https://llvm.discourse.group/). So goal of this
+document is to figure out if/how we could migrate from mailman to Discourse.
 While there are other alternatives, they are not considered in THIS document.
 
-## Discord terms
+## Discourse terms
 
-Discord's structure is similar to a set of mailing lists, however different
+Discourse's structure is similar to a set of mailing lists, however different
 terms are used there. To help with the transition, here's a translation table
 for the terms:
 
@@ -40,14 +40,20 @@ Some folks want to interact with Discourse purely via their email program. Here
 are the typical use cases:
 
 * [Subscribing to a category or topic](https://discourse.mozilla.org/t/how-do-i-subscribe-to-categories-and-topics/16024)
-* **TODO:** Replying to a topic is
-  [supported](https://meta.discourse.org/t/set-up-reply-via-email-support/14003)
-  , not sure if that is set up.
+* Replying to a topic works, including quoting other peoples texts
+  ([tested](https://llvm.discourse.group/t/email-interaction-with-discourse/3306/4) on GMail).
 * [Quoting previous topics in an reply](https://meta.discourse.org/t/single-quote-block-dropped-in-email-reply/144802)
-* **TODO:** Creating new topics is
+* Creating new topics is
   [supported](https://meta.discourse.org/t/start-a-new-topic-via-email/62977)
-  , not sure if it configured on our server.Also not sure how to find
-  out the email address.
+  but not configured at the moment. We would need to set up an email address
+  per category and give Discourse POP3 access to that email account. This sounds
+  like a solvable issue.
+
+## Private categories
+
+If needed categories can have individual [security
+settings](https://meta.discourse.org/t/how-to-use-category-security-settings-to-create-private-categories/87678)
+to limit visibility and write permissions.
 
 ## Code reviews via email
 
@@ -100,6 +106,29 @@ parsing the emails on the mailing list?
 
 **TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
 that information.
+
+## mapping the mailing lists
+
+This section will propose a migration for each mailing list we have today. See
+above for details on the respective use cases.
+
+| Mailing lists | proposed migration |
+|---------------|--------------------|
+| all "-commits" lists | use GitHub's Atom feeds |
+| all "-dev" and "-users" lists | Use Discourse category with email support |
+| all "-bugs" | Use notifications on GitHub after the migration of the bug tracker |
+| Bugs-admin <br/> devmtg-organizers <br/> eurollvm-organizers <br/> gsoc <br/> llvm-admin <br/> llvm-announce <br/> llvm-devmeeting <br/> llvm-foundation <br/> Release-testers <br/> Test-list | Use Discourse category with email support. <br/> Permissions can be configured where needed. |
+|  | **TODO** |
+| Docs | **TODO** |
+| WiCT | **TODO** |
+| www-scripts | **TODO** |
+
+## Archiving of code review results
+
+Today we're using the mailing lists as archive of the code review results.
+
+**TODO:** Figure out what is needed to use Phabricator as source of truth and
+how that could be archived in case we ever wanted to replace it.
 
 ## other use cases
 
