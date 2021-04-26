@@ -66,6 +66,15 @@ review on any of the ``-commits`` mailing lists between 2021-02-01 and
 **TODO:** Ask the community if this is still used anywhere. If not: update the
 documentation accordingly.
 
+**TODO:** Folks are replying to Phabricator emails and then discuss the review
+via email. Those discussions do not get parsed back into Phabricator and appear
+only on the mailing lists. Phab and Mailing lists are out of sync. Supported in
+Phabricator
+https://secure.phabricator.com/book/phabricator/article/configuring_inbound_email/
+but not set up.
+As a side note: GitHub Pull Requests do also support responding via email. Those
+responses get added to the code review discussion page.
+
 ## Handling automatic notifications
 
 Not only humans are posting to our mailing lists, we also have some services
@@ -107,7 +116,14 @@ parsing the emails on the mailing list?
 **TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
 that information.
 
-## mapping the mailing lists
+**TODO:** Phabricator can also notify you about commits. Commits can also be
+discussed on Phabricator.
+
+**TODO:** Verify the idea: Set up projects on Phabricator that anyone can join.
+Set up Herald rules that notify projects on certain changes (e.g. based on the
+modified files).
+
+## Mapping the mailing lists
 
 This section will propose a migration for each mailing list we have today. See
 above for details on the respective use cases.
@@ -126,10 +142,11 @@ above for details on the respective use cases.
 ## Archiving of code review results
 
 Today we're using the mailing lists as archive of the code review results.
+In case we shut down Phabricator (e.g. because of a GitHub Pull Request
+migration), we still want to preserve the reviews. One alternative to the
+mailing lists would be to create a static html version of the Phabricator
+content (e.g. using a web crawler) and then archive the static html.
 
-**TODO:** Figure out what is needed to use Phabricator as source of truth and
-how that could be archived in case we ever wanted to replace it.
-
-## other use cases
+## Other use cases
 
 **TODO:** Figure out if there are additional use cases, not covered above.
