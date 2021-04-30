@@ -126,6 +126,16 @@ parsing the emails on the mailing list?
 **TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
 that information.
 
+## Reply to author only (privately)
+
+On the mailing list you have the opportunity to reply only to the sender of the
+email, not to the entire list. That is not supported when replying via email on
+Discourse. However you can send someone a private message via the Web UI.
+
+Also Discourse does not expose users' email addresses , so your private replies
+have to go through their platform (unless you happen to know the email address
+of the user.)
+
 ## Mapping the mailing lists
 
 This section will propose a migration for each mailing list we have today. See
