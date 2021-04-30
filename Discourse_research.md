@@ -123,9 +123,6 @@ posting automatic messages to notify folks of some event that occurred.
 **TODO:** Do we need some machine-to-machine notifications? Is any service
 parsing the emails on the mailing list?
 
-**TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
-that information.
-
 ## Reply to author only (privately)
 
 On the mailing list you have the opportunity to reply only to the sender of the
@@ -146,10 +143,8 @@ above for details on the respective use cases.
 | all "-commits" lists | use Phabricator projects (see above) |
 | all "-dev" and "-users" lists | Use Discourse category with email support |
 | all "-bugs" | Use notifications on GitHub after the migration of the bug tracker |
-| Bugs-admin <br/> devmtg-organizers <br/> eurollvm-organizers <br/> gsoc <br/> llvm-admin <br/> llvm-announce <br/> llvm-devmeeting <br/> llvm-foundation <br/> Release-testers <br/> Test-list | Use Discourse category with email support. <br/> Permissions can be configured where needed. |
-| Docs | **TODO** |
-| WiCT | **TODO** |
-| www-scripts | **TODO** |
+| Bugs-admin <br/> devmtg-organizers <br/> eurollvm-organizers <br/> gsoc <br/> llvm-admin <br/> llvm-announce <br/> llvm-devmeeting <br/> llvm-foundation <br/> Release-testers <br/> Test-list <br/> Docs <br/> WiCT| Use Discourse category with email support. <br/> Permissions can be configured where needed. |
+| www-scripts | **TODO** This looks like the output of a CI server. Maybe use that server's notification mechanism? |
 
 ## Archiving of code review results
 
