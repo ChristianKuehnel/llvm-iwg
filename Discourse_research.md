@@ -143,7 +143,7 @@ above for details on the respective use cases.
 
 | Mailing lists | proposed migration |
 |---------------|--------------------|
-| all "-commits" lists | use GitHub's Atom feeds |
+| all "-commits" lists | use Phabricator projects (see above) |
 | all "-dev" and "-users" lists | Use Discourse category with email support |
 | all "-bugs" | Use notifications on GitHub after the migration of the bug tracker |
 | Bugs-admin <br/> devmtg-organizers <br/> eurollvm-organizers <br/> gsoc <br/> llvm-admin <br/> llvm-announce <br/> llvm-devmeeting <br/> llvm-foundation <br/> Release-testers <br/> Test-list | Use Discourse category with email support. <br/> Permissions can be configured where needed. |
