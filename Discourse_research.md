@@ -3,8 +3,10 @@
 ## Background and Goal
 
 LLVM is using a [Mailman server](https://lists.llvm.org/mailman/listinfo)
-to host the [mailing lists](https://llvm.org/docs/GettingInvolved.html#mailing-lists). These are one of the main forms of communication
-within the community. The Mailman server was causing
+to host the [mailing
+lists](https://llvm.org/docs/GettingInvolved.html#mailing-lists). These are one
+of the main forms of communication within the community. The Mailman server was
+causing
 [some issues](https://lists.llvm.org/pipermail/llvm-dev/2021-March/149027.html)
 recently and also creates significant administration and maintenance overhead.
 
@@ -32,7 +34,8 @@ To fully shut down mailman, we need to have a solution to also migrate our
 mailing list archive. Discourse seems to support [importing mailing
 lists](https://meta.discourse.org/t/importing-mailing-lists-mbox-listserv-google-groups-emails/79773).
 
-**TODO:** Can we somehow maintain/redirect the existing mailman links so they keep working?
+**TODO:** Can we somehow maintain/redirect the existing mailman links so they
+keep working?
 
 ## Interacting with Discourse via Emails
 
@@ -59,21 +62,30 @@ to limit visibility and write permissions.
 
 Our [code review
 policy](https://llvm.org/docs/CodeReview.html#what-tools-are-used-for-code-review)
-allows for code reviews via email. However I was not able to find a single code
-review on any of the ``-commits`` mailing lists between 2021-02-01 and
-2021-04-21. So maybe this is not used any more?
+allows for code reviews via email. It looks like we will abandon the policy and
+make Phabricator the tool of choice for code reviews.
 
-**TODO:** Ask the community if this is still used anywhere. If not: update the
-documentation accordingly.
+As a replacement, we can use the [email
+integration](https://secure.phabricator.com/book/phabricator/article/configuring_inbound_email/)
+of Phabricator, so that users can reply to code reviews from their email client.
+Note: Is is a standard feature of Phabricator that is already usable today.
 
-**TODO:** Folks are replying to Phabricator emails and then discuss the review
-via email. Those discussions do not get parsed back into Phabricator and appear
-only on the mailing lists. Phab and Mailing lists are out of sync. Supported in
-Phabricator
-https://secure.phabricator.com/book/phabricator/article/configuring_inbound_email/
-but not set up.
-As a side note: GitHub Pull Requests do also support responding via email. Those
-responses get added to the code review discussion page.
+Proposal for a future email workflow:
+
+* For each of the mailing lists, we create a *Project* with the same name in
+  Phabricator ([example project](https://reviews.llvm.org/project/view/104/)).
+  Every Phabricator user can join/leave these projects on their own.
+* Everyone on these projects will receive the same email notifications from
+  Phabricator as we have on the mailing lists. This is configured via *Herald*
+  rules in Phabricator, as today, ([example rule](https://reviews.llvm.org/H769)).
+* Users can reply to these email notifications and Phabricator will incorporate
+  these responses with their email client, see
+  [D101432](https://reviews.llvm.org/D101432) for some example emails. Quoting
+  and markup is supported as well.
+* We do **NOT** migrate the membership lists. Users need to sign up to the
+  projects manually once.
+* We can send an email with instructions to the mailing
+  lists once everything is set up.
 
 ## Handling automatic notifications
 
@@ -81,16 +93,15 @@ Not only humans are posting to our mailing lists, we also have some services
 posting automatic messages to notify folks of some event that occurred.
 
 * *New code reviews on Phabricator:*
-  You can set up a custom [Herald](https://reviews.llvm.org/herald/) rule to get
-  notified on the reviews you're interested in.
+  see section of code reviews above
 
 * *Changes to an ongoing code review on Phabricator:*
-  This is supported by Phabricator out of the box. Open the revision you're
-  interested in and click on "Subscribe" in the box on the right.
+  see section of code reviews above
 
 * *New commits to the GitHub repositories:*
-  You can subscribe to an Atom feed for any GitHub repo. For the LLVM main branch
-  point your Atom reader to
+  See section of code reviews above.
+  As an alternative you can subscribe to an Atom feed for any GitHub repo. For
+  the LLVM main branch point your Atom reader to
   [github.com/llvm/llvm-project/commits/main.atom](https://github.com/llvm/llvm-project/commits/main.atom)
   or
   [github.com/llvm/llvm-project/commits/release/12.x.atom](https://github.com/llvm/llvm-project/commits/release/12.x.atom)
@@ -98,11 +109,10 @@ posting automatic messages to notify folks of some event that occurred.
   ``.atom`` to the URL of the respective "commits" page.
 
 * *New/modified bugs:*
-  After the [migration](https://lists.llvm.org/pipermail/llvm-dev/2019-October/136162.html) from the [LLVM Bugzilla](http://bugs.llvm.org/) to GitHub issues, you can "watch" the issues
-  of a repository.
-
-* *LLVM Weekly newsletter:*
-  You can subscribe to it on their [website](http://llvmweekly.org/).
+  After the
+  [migration](https://lists.llvm.org/pipermail/llvm-dev/2019-October/136162.html)
+  from the [LLVM Bugzilla](http://bugs.llvm.org/) to GitHub issues, you can
+  "watch" the issues of a repository.
 
 * *Sending a post from a script:*
   In case you want to [create a new
@@ -115,13 +125,6 @@ parsing the emails on the mailing list?
 
 **TODO:** Figure out who is posting to the [www-scripts mailing list](https://lists.llvm.org/cgi-bin/mailman/listinfo/www-scripts) and who uses
 that information.
-
-**TODO:** Phabricator can also notify you about commits. Commits can also be
-discussed on Phabricator.
-
-**TODO:** Verify the idea: Set up projects on Phabricator that anyone can join.
-Set up Herald rules that notify projects on certain changes (e.g. based on the
-modified files).
 
 ## Mapping the mailing lists
 
